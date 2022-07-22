@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Recursive:wght@300;400;500;600;700;900&display=swap");
+.main__container {
+  width: 80%;
+  height: 600px;
+  background: #252842;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1em;
+}
+
+.main__list {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.adicionar__aluno {
+  width: 232px;
+  background: #5350eb;
+  font-weight: 400 !important;
+  border-radius: 5px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.adicionar__aluno__texto {
+  color: #fff;
+  font-weight: 400 !important;
+}
+
+.card {
+  background: #303558;
+  color: #fff;
+  width: 300px;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2em;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  background: grey;
+  border-radius: 50%;
+}
