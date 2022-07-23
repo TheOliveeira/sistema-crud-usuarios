@@ -10,6 +10,8 @@ export default function AlunoCard(aluno) {
   const formattedDate = new Date(aluno.aluno.DataNascimento);
   const wrapperRef = useRef(null);
 
+  console.log("ALUNOooo/Card", aluno.aluno)
+
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -51,11 +53,11 @@ export default function AlunoCard(aluno) {
             className={styles.ball}
             onClick={() => setSelectedId(aluno.aluno._id)}
           >
-            <Profile nome={aluno.aluno.userName}></Profile>
+            <Profile nome={aluno.aluno.Nome}></Profile>
           </div>
           <div>
             <h2 className={styles.heading2}>{aluno.aluno.Nome}</h2>
-            <h3 className={styles.heading3}>Classe</h3>
+            <h3 className={styles.heading3}>{aluno.aluno.Curso}</h3>
           </div>
           <div className={styles.delete__button} onClick={() => deleteAluno()}>
             <svg

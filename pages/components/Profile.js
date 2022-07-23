@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
 
 const Profile = (props) => {
+  console.log("PROFIle", props)
   const [showComponent, setShowComponent] = useState(false);
   const [profileName, setProfileName] = useState("Mary Baker");
   const [profilePallete, setProfilePallete] = useState();
