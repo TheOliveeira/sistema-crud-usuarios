@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
 
-/**https://boringavatars.com/ */
-
-export default function Profile() {
+const Profile = (props) => {
   const [showComponent, setShowComponent] = useState(false);
+  const [profileName, setProfileName] = useState("Mary Baker");
+  const [profilePallete, setProfilePallete] = useState();
 
   useEffect(() => {
     setShowComponent(true);
+    setProfileName(props.nome);
   }, []);
 
   return (
@@ -15,11 +16,13 @@ export default function Profile() {
       {showComponent === true && (
         <Avatar
           size={50}
-          name="Mary Baker"
+          name={profileName}
           variant="beam"
           colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
         />
       )}
     </div>
   );
-}
+};
+
+export default Profile;
