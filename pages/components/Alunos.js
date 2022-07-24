@@ -28,11 +28,7 @@ export default function Alunos(alunos) {
   }, [wrapperRef]);
 
   async function submitForm(event) {
-    console.log("Form submitted", event);
     event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
-    console.log(event.target[2].value);
     const obj = {
       Nome: event.target[0].value,
       DataNascimento: event.target[1].value,
@@ -52,7 +48,7 @@ export default function Alunos(alunos) {
           <h2 className={styles.adicionar__aluno__texto}>Adicionar Aluno</h2>
         </button>
         <div className={styles.cards__container}>
-          {alunos[Object.keys(alunos)[0]].map((alunoUnitario, idx) => (
+          {alunos[Object.keys(alunos)[0]]?.map((alunoUnitario, idx) => (
             <React.Fragment key={idx}>
               <AlunoCard aluno={alunoUnitario}></AlunoCard>
             </React.Fragment>

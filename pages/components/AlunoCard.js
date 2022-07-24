@@ -7,7 +7,7 @@ import Router from "next/router";
 
 export default function AlunoCard(aluno) {
   const [selectedId, setSelectedId] = useState(null);
-  const formattedDate = new Date(aluno.aluno.DataNascimento);
+  const formattedDate = new Date(aluno.aluno?.DataNascimento);
   const wrapperRef = useRef(null);
 
   useEffect(() => {
@@ -72,11 +72,11 @@ export default function AlunoCard(aluno) {
             onClick={() => setSelectedId(aluno.aluno._id)}
           >
             <div className={styles.ball}>
-              <Profile nome={aluno.aluno.Nome}></Profile>
+              <Profile nome={aluno.aluno?.Nome}></Profile>
             </div>
             <div>
-              <h2 className={styles.heading2}>{aluno.aluno.Nome}</h2>
-              <h3 className={styles.heading3}>{aluno.aluno.Curso}</h3>
+              <h2 className={styles.heading2}>{aluno.aluno?.Nome}</h2>
+              <h3 className={styles.heading3}>{aluno.aluno?.Curso}</h3>
             </div>
           </div>
           <div className={styles.delete__button} onClick={() => deleteAluno()}>
@@ -120,7 +120,7 @@ export default function AlunoCard(aluno) {
               </div>
             </div>
             <div style={{ marginLeft: "20%", color: "#fff" }}>
-              <motion.h2>Nome do aluno: {aluno.aluno.Nome}</motion.h2>
+              <motion.h2>Nome do aluno: {aluno.aluno?.Nome}</motion.h2>
               <motion.h5 style={{ fontWeight: "500" }}>
                 Ano de Nascimento: {formattedDate.getUTCFullYear()}
               </motion.h5>
@@ -146,7 +146,7 @@ export default function AlunoCard(aluno) {
             >
               <h2>Editar Aluno</h2>
               <h3>Nome:</h3>
-              <input required placeholder={aluno.aluno.Nome}></input>
+              <input required placeholder={aluno.aluno?.Nome}></input>
               <h3>Data de Nascimento:</h3>
               <input
                 type="date"

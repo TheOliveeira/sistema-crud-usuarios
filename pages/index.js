@@ -2,21 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Heading from "./components/Heading";
-import dbConnect from "./database/connect";
-import Alunos from "./models/Aluno.js";
+import dbConnect from "../utils/database/connect";
+import Alunos from "../models/Aluno.js";
 
 import React, { useState } from "react";
 
 export const getStaticProps = async () => {
   // Estabelecendo conexão com o banco de dados
   await dbConnect();
-  /*
-  await Alunos.create({
-    Nome: "jeca",
-    DataNascimento: Date.now(),
-    Ativo: true,
-  });
-  */
   let data = await Alunos.find({});
   data = JSON.parse(JSON.stringify(data));
 

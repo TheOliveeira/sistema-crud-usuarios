@@ -1,5 +1,5 @@
-import dbConnect from "../../database/connect";
-import Aluno from "../../models/Aluno";
+import dbConnect from "../../../utils/database/connect";
+import Aluno from "../../../models/Aluno";
 
 export async function deleteAluno(id) {
   try {
