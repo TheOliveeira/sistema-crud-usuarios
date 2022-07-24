@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Descrição
 
-## Getting Started
+Projeto de programação com intuito de construir um CRUD de uma plataforma WEB.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Tecnologias utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+React.js
+Next.js(frontend)
+Mongo(banco de dados)
+CSS
+HTML
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Como Rodar
+0 - npm install 
 
-## Learn More
+1 - Trocar o .env.example para as suas credencias do mongo.
+e renomear o .env.example para .env apenas.
+![image](https://user-images.githubusercontent.com/86118346/180664869-fdc1f4a5-05fd-440a-92aa-5a4f45536cf2.png)
 
-To learn more about Next.js, take a look at the following resources:
+2 - npm run dev.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## CRUD
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create - OK
+![image](https://user-images.githubusercontent.com/86118346/180664974-823318cf-7574-45dc-a7e4-371a673dfa71.png)
+<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Update - OK
+
+![image](https://user-images.githubusercontent.com/86118346/180664989-c816888e-f16a-4f71-be61-9d30fdc351e8.png)
+![image](https://user-images.githubusercontent.com/86118346/180664993-39b91d74-9ebf-45b7-8988-5a401dd84450.png)
+<br>
+
+Read - OK
+
+![image](https://user-images.githubusercontent.com/86118346/180664981-484a5301-ec05-426f-bfae-32618d8e655f.png)
+<br>
+
+DELETE - OK
+
+![image](https://user-images.githubusercontent.com/86118346/180665003-efbb1662-9194-422d-95c2-c1c356baec38.png)
+![image](https://user-images.githubusercontent.com/86118346/180665008-0633e6ec-4d99-4cee-8e3a-308c784e227c.png)
+
