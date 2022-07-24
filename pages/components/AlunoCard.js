@@ -10,8 +10,6 @@ export default function AlunoCard(aluno) {
   const formattedDate = new Date(aluno.aluno.DataNascimento);
   const wrapperRef = useRef(null);
 
-  console.log("ALUNOooo/Card", aluno.aluno)
-
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -32,9 +30,23 @@ export default function AlunoCard(aluno) {
   }, [wrapperRef]);
 
   async function deleteAluno() {
-    fetch(`api/${aluno.aluno._id}`, { method: "DELETE" });
+    await fetch(`api/${aluno.aluno._id}`, { method: "DELETE" });
     console.log("deletado");
     Router.push("/");
+  }
+  async function submitForm(event) {
+    event.preventDefault();
+    const obj = {
+      Nome: event.target[0].value,
+      DataNascimento: event.target[1].value,
+      Curso: event.target[2].value,
+    };
+    await fetch(`api/${selectedId}`, {
+      method: "PATCH",
+      body: JSON.stringify(obj),
+    });
+    Router.push("/");
+    setSelectedId(null);
   }
 
   return (
@@ -48,16 +60,24 @@ export default function AlunoCard(aluno) {
           damping: 20,
         }}
       >
-        <div className={styles.card}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <div
-            className={styles.ball}
+            className={styles.card}
             onClick={() => setSelectedId(aluno.aluno._id)}
           >
-            <Profile nome={aluno.aluno.Nome}></Profile>
-          </div>
-          <div>
-            <h2 className={styles.heading2}>{aluno.aluno.Nome}</h2>
-            <h3 className={styles.heading3}>{aluno.aluno.Curso}</h3>
+            <div className={styles.ball}>
+              <Profile nome={aluno.aluno.Nome}></Profile>
+            </div>
+            <div>
+              <h2 className={styles.heading2}>{aluno.aluno.Nome}</h2>
+              <h3 className={styles.heading3}>{aluno.aluno.Curso}</h3>
+            </div>
           </div>
           <div className={styles.delete__button} onClick={() => deleteAluno()}>
             <svg
@@ -118,6 +138,30 @@ export default function AlunoCard(aluno) {
                 Ano de Nascimento: {formattedDate.getUTCFullYear()}
               </motion.h5>
             </div>
+            <form
+              style={{ marginLeft: "20%", color: "#fff" }}
+              onSubmit={(e) => {
+                submitForm(e);
+              }}
+            >
+              <h2>Editar Aluno</h2>
+              <h3>Nome:</h3>
+              <input required placeholder={aluno.aluno.Nome}></input>
+              <h3>Data de Nascimento:</h3>
+              <input
+                type="date"
+                placeholder={aluno.aluno?.DataNascimento}
+                required
+              ></input>
+              <h3>Curso:</h3>
+              <input placeholder={aluno.aluno?.Curso} required></input>
+              <br></br>
+              <br></br>
+
+              <button type="submit" value="Submit">
+                Editar
+              </button>
+            </form>
             <div
               className={homestyles.button}
               style={{}}

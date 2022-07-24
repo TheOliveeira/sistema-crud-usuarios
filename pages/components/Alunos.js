@@ -5,7 +5,6 @@ import AlunoCard from "./AlunoCard";
 import { motion, AnimatePresence } from "framer-motion";
 import Router from "next/router";
 
-
 export default function Alunos(alunos) {
   const [form, setForm] = useState();
   const wrapperRef = useRef(null);
@@ -28,17 +27,20 @@ export default function Alunos(alunos) {
     };
   }, [wrapperRef]);
 
-  const submitForm = (event) => {
-    console.log("Form submitted", event)
-    event.preventDefault()
-    console.log(event.target[0].value)
-    console.log(event.target[1].value)
-    console.log(event.target[2].value)
-    const obj = {Nome: event.target[0].value, DataNascimento: event.target[1].value, Curso: event.target[2].value}
-    fetch(`api/create`, { method: "POST", body: JSON.stringify(obj)});
-    Router.push('/')
-
-    setForm(false)
+  async function submitForm(event) {
+    console.log("Form submitted", event);
+    event.preventDefault();
+    console.log(event.target[0].value);
+    console.log(event.target[1].value);
+    console.log(event.target[2].value);
+    const obj = {
+      Nome: event.target[0].value,
+      DataNascimento: event.target[1].value,
+      Curso: event.target[2].value,
+    };
+    await fetch(`api/create`, { method: "POST", body: JSON.stringify(obj) });
+    Router.push("/");
+    setForm(false);
   }
   return (
     <div className={styles.main__container}>
@@ -85,17 +87,22 @@ export default function Alunos(alunos) {
               style={{}}
               onClick={() => setForm(false)}
             ></div>
-            <form style={{marginLeft : "1em", color : "#fff"}} 
-                onSubmit={(e) => {submitForm(e)}}
+            <form
+              style={{ marginLeft: "1em", color: "#fff" }}
+              onSubmit={(e) => {
+                submitForm(e);
+              }}
             >
               <h3>Nome:</h3>
-              <input  required></input>
+              <input required></input>
               <h3>Data de Nascimento:</h3>
-              <input  type='date' required></input>
+              <input type="date" required></input>
               <h3>Curso:</h3>
-              <input  required></input>
+              <input required></input>
               <hr></hr>
-              <button type="submit" value="Submit">Cadastrar</button>
+              <button type="submit" value="Submit">
+                Cadastrar
+              </button>
             </form>
           </motion.div>
         )}
